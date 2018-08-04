@@ -8,7 +8,6 @@ $.prototype.trivia = function () {
         incorrect: 0,
         unanswered: 0,
     };
-    thi.images = null;
     thi.number = 30;
     thi.active = 0;
     thi.questions = [{
