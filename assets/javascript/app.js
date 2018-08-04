@@ -14,7 +14,6 @@ $.prototype.trivia = function () {
     thi.questions = [{
         question: "What did Harry Potter name his owl?",
         choices: ["Pigwidgeon", "Scabbers", "Hedwig", "Trevor"],
-        images: ["<img class='center-block' src='../images/pincers.gif"],
         correct: 2
     }, {
         question: "Who killed Sirius Black?",
