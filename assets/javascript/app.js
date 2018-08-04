@@ -13,7 +13,7 @@ $.prototype.trivia = function () {
     thi.questions = [{
         question: "What did Harry Potter name his owl?",
         choices: ["Pigwidgeon", "Scabbers", "Hedwig", "Trevor"],
-        correct: 2
+        correct: 2,
     }, {
         question: "Who killed Sirius Black?",
         choices: ["Voldemort", "Bellatrix", "Hermione", "Lupin"],
@@ -120,22 +120,28 @@ $("#begin").click(function () {
     $(this).hide();
     $('.result').remove();
     $('.correct,.incorrect,.unanswered').html('');
+    count = -1;
     Trivia = new $(window).trivia();
     Trivia.quiz();
 });
+var gifs = ['assets/images/pincers.gif', 'assets/images/bellatrix1.gif', 'assets/images/dobby.gif', 'assets/images/sirius.gif', 'assets/images/shrug.gif', 'assets/images/clapping.gif', 'assets/images/ron.gif', 'assets/images/hagrid.gif', 'assets/images/obviously.gif', 'assets/images/dumblin.gif'];
+var count = -1;
 
 $('#answers1').on('click', 'button', function () {
     var playerChoice = $(this).data("id"),
         thi = Trivia || $(window).trivia(),
         index = thi.questions[thi.active].correct,
         correct = thi.questions[thi.active].choices[index];
+        count++;
 
     if (playerChoice !== index) {
         $('#answers1').text("Incorrect, how disappointing. The correct answer is: " + correct);
         thi.answer(false);
+        $("#images1").html("<img src='assets/images/wrong.gif' width='200px'>");
     } else {
         $('#answers1').text("Correct!: " + correct);
         thi.answer(true);
+        $("#images1").html("<img src=" + gifs[count] + " width='200px'>");
     }
     thi.nextQuestion();
 
